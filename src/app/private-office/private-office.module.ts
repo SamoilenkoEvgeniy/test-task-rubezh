@@ -6,6 +6,7 @@ import {PrivateOfficeRoutingModule} from './private-office-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatProgressSpinnerModule} from '@angular/material';
 import {TreeModule} from 'primeng/primeng';
+import {Http, HttpModule} from '@angular/http';
 
 @NgModule({
     imports: [

@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
         this.files = this.dataService.getTreeStructure();
         this.files_second = this.dataService.getTreeStructureSecond();
-
         this.dataService.cMap(this.files, this.files_second, this.differences);
+        this.dataService.getData();
     }
 
     report() {

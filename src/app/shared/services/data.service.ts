@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
+import {Http} from '@angular/http';
 
 @Injectable()
 export class DataService {
@@ -10,7 +11,7 @@ export class DataService {
     private dataChanged = new Subject<string>();
     dataChanged$ = this.dataChanged.asObservable();
 
-    constructor() {
+    constructor(protected http: Http) {
     }
 
     dataChangedMethod(string) {
@@ -232,6 +233,14 @@ export class DataService {
                 if (item['children']) {
                     this.cMap(item['children'], compare_obj[_index]['children'], differences);
                 }
+            }
+        );
+    }
+
+    getData() {
+        return this.http.get('http://test-api.javascript.ru/v1/ivankhr2/users').subscribe(
+            (data) => {
+                console.log(data);
             }
         );
     }
